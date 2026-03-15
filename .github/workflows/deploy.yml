@@ -39,7 +39,6 @@ jobs:
           else
             echo "ℹCNAME not found"
           fi
-
       - name: Deploy to GitHub Pages
         uses: crazy-max/ghaction-github-pages@v4
         with:
