@@ -10,7 +10,7 @@ jobs:
     runs-on: ubuntu-latest
     
     permissions:
-      contents: write  # 允许写入 gh-pages 分支
+      contents: write 
 
     steps:
       - uses: actions/checkout@v4
@@ -24,7 +24,7 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: 22
-          cache: 'pnpm'  # ✅ 添加缓存加
+          cache: 'pnpm' 
       - name: Install Dependencies
         run: pnpm install --frozen-lockfile
 

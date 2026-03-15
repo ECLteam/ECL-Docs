@@ -43,7 +43,7 @@ export default defineUserConfig({
      editLink: true,
      lastUpdated: true,
      contributors: true,
-     changelog: false,
+     changelog: true,
 
     /**
      * 编译缓存，加快编译速度
@@ -55,7 +55,8 @@ export default defineUserConfig({
      * 为 markdown 文件自动添加 frontmatter 配置
      * @see https://theme-plume.vuejs.press/config/theme/#autofrontmatter
      */
-    autoFrontmatter: {
+    autoFrontmatter: //true,
+    /**/{
        permalink: true,  // 是否生成永久链接
        createTime: true, // 是否生成创建时间
        title: true,      // 是否生成标题
@@ -176,8 +177,8 @@ export default defineUserConfig({
      * 启用 llmstxt 插件，用于为大语言模型提供更友好的内容
      * @see https://theme-plume.vuejs.press/guide/features/llmstxt/
      */
-    // llmstxt: {
-    //   locale: '/',    // 默认仅为主语言生成 llms 友好内容
-    // }
+    llmstxt: {
+       locale: '/',    // 默认仅为主语言生成 llms 友好内容
+    }
   }),
 })

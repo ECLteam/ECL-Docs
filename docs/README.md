@@ -11,7 +11,7 @@ config:
       actions:
         - theme: brand
           text: 快速开始
-          link: /start/intro
+          link: /USEDOC/introduction
         - theme: alt
           text: Github
           link: https://github.com/ECLteam
