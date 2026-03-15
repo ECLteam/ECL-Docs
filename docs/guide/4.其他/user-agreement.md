@@ -44,8 +44,8 @@ permalink: /guide/user-agreement/
 在开发者修改条款后，如果用户不接受修改后的条款，用户可以选择终止使用本软件。用户继续使用的，将被视为已接受了修改后的条款。
 :::
 
-&gt; [!IMPORTANT]
-&gt; EuoraCraft Launcher 是由 **ECLTeam** 开发的独立开源项目，**与 Mojang Studios、Microsoft Corporation 及其旗下产品 Minecraft 不存在任何隶属、赞助或授权关系**。
+> [!IMPORTANT]
+> EuoraCraft Launcher 是由 **ECLTeam** 开发的独立开源项目，**与 Mojang Studios、Microsoft Corporation 及其旗下产品 Minecraft 不存在任何隶属、赞助或授权关系**。
 
 ---
 
