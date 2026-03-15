@@ -1,7 +1,7 @@
 ---
 title: 介绍
 createTime: 2026/03/14 23:37:45
-permalink: /USEDOC/introduction
+permalink: /guide/introduction/
 ---
 > [!IMPORTANT]
 > EuoraCraft Launcher 是由社区开发的独立开源项目，**与 Mojang Studios、Microsoft Corporation 及其旗下产品 Minecraft 不存在任何隶属、赞助或授权关系**。
