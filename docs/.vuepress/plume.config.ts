@@ -54,8 +54,9 @@ export default defineThemeConfig({
   /* 站点页脚 */
   footer: {
     message:
-      `版权归属 ${yearRange} © ECLTeam 基于 <a target="_blank" href="https://v2.vuepress.vuejs.org/">VuePress</a> & <a target="_blank" href="https://theme-plume.vuejs.press">vuepress-theme-plume</a> 构建`,
-    //copyright: '',
+      `<a href="https://icp.gov.moe/?keyword=20269999" target="_blank">萌ICP备20269999号</a>`,
+    copyright: 
+      `版权归属 ${yearRange} © ECLTeam 本站基于 <a target="_blank" href="https://v2.vuepress.vuejs.org/">VuePress</a> & <a target="_blank" href="https://theme-plume.vuejs.press">vuepress-theme-plume</a> 构建`,
   },
 
   /**
@@ -63,10 +64,10 @@ export default defineThemeConfig({
    */
   profile: {
     avatar: "/logo.png",
-    name: "EuoraCraft-Docs",
+    name: "ECL-Docs",
     description: "EuoraCraft-Launcher 启动器使用文档",
     circle: true,
-    //location: '河北',
+    location: '中国',
     organization: "ECLTeam",
   },
 
@@ -76,13 +77,13 @@ export default defineThemeConfig({
   /**
    * 公告板
    * @see https://theme-plume.vuejs.press/guide/features/bulletin/ 
-   
+   */
    bulletin: {
      layout: 'top-right',
      contentType: 'markdown',
      title: '公告板标题',
      content: '公告板内容',
-   },*/
+   },
 
   /* 过渡动画 @see https://theme-plume.vuejs.press/config/theme/#transition  */
   transition: {

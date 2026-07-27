@@ -16,7 +16,7 @@ import { plumeTheme } from 'vuepress-theme-plume'
 export default defineUserConfig({
   base: '/',
   lang: 'zh-CN',
-  title: 'EuoraCraft-Docs',
+  title: 'ECL-Docs',
   description: 'EuoraCraft-Launcher 启动器使用文档',
 
   head: [
@@ -29,7 +29,7 @@ export default defineUserConfig({
 
   theme: plumeTheme({
     /* 添加您的部署域名, 有助于 SEO, 生成 sitemap */
-    hostname: 'https://euoracraft.zient.top',
+    hostname: 'https://docs.eclteam.top',
 
     /* 文档仓库配置，用于 editLink */
     docsRepo: 'https://github.com/ECLteam/ECL-Docs',
