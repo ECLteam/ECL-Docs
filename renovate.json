@@ -1,0 +1,36 @@
+{
+  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+  "extends": [
+    "config:recommended"
+  ],
+  "timezone": "Asia/Shanghai",
+  "addLabels": ["renovate","dependencies"],
+  "commitMessagePrefix": "deps:",
+  "ignoreDeps": ["node","pnpm"],
+  "schedule": [
+	"on friday"
+  ],
+  "packageRules": [
+    {
+      "matchManagers":["npm"],
+      "groupName": "all-dependencies"
+    },
+    {
+      "matchDepTypes":["devDependencies"],
+      "matchManagers":["npm"],
+      "groupName": "dev-dependencies"
+    },
+    {
+      "matchPackageNames":["typescript"],
+      "allowedVersions": "<7.0.0"
+    },
+    {
+      "matchCategories":["ci"],
+      "matchDepTypes":["action"],
+      "matchDatasources":["github-tags"],
+      "matchUpdateTypes":"major",
+      "groupName": "action-dependencies",
+      "labels": ["github_actions"]
+    }
+  ]
+}
