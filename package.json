@@ -33,7 +33,7 @@
   "dependencies": {
     "@tsparticles/engine": "^3.9.1",
     "@tsparticles/slim": "^3.9.1",
-    "@vuepress/shiki-twoslash": "2.0.0-rc.132",
+    "@vuepress/shiki-twoslash": "2.0.0-rc.123",
     "tsparticles": "^3.9.1"
   }
 }
