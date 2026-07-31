@@ -13,11 +13,12 @@
     "vp-update": "pnpm dlx vp-update"
   },
   "devDependencies": {
-    "@vuepress/bundler-vite": "2.0.0-rc.31",
+    "@vuepress/bundler-vite": "2.0.0-rc.30",
+    "@vuepress/shiki-twoslash": "2.0.0-rc.131",
     "http-server": "^14.1.1",
     "typescript": "^5.9.3",
     "vue": "^3.5.30",
-    "vuepress": "2.0.0-rc.31",
+    "vuepress": "2.0.0-rc.30",
     "vuepress-theme-plume": "1.0.0-rc.204"
   },
   "pnpm": {
@@ -33,7 +34,6 @@
   "dependencies": {
     "@tsparticles/engine": "^3.9.1",
     "@tsparticles/slim": "^3.9.1",
-    "@vuepress/shiki-twoslash": "2.0.0-rc.123",
     "tsparticles": "^3.9.1"
   }
 }
