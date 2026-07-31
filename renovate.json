@@ -13,7 +13,6 @@
   "packageRules": [
     {
       "matchManagers":["npm"],
-      "matchUpdateTypes":["minor","patch"],
       "groupName": "all-dependencies"
     },
     {
@@ -24,6 +23,14 @@
     {
       "matchPackageNames":["typescript"],
       "allowedVersions": "<7.0.0"
+    },
+    {
+      "matchCategories":["ci"],
+      "matchDepTypes":["action"],
+      "matchDatasources":["github-tags"],
+      "matchUpdateTypes":"major",
+      "groupName": "action-dependencies",
+      "labels": ["github_actions"]
     }
   ]
 }
