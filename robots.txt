@@ -1,0 +1,3 @@
+Sitemap: https://docs.eclteam.top/sitemap.xml
+User-agent:*
+Disallow:
