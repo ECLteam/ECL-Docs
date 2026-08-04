@@ -34,6 +34,7 @@
   "dependencies": {
     "@tsparticles/engine": "^3.9.1",
     "@tsparticles/slim": "^3.9.1",
+    "mermaid": "^11.16.1",
     "tsparticles": "^3.9.1"
   }
 }
