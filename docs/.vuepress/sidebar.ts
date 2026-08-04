@@ -19,6 +19,18 @@ const sidebar: ThemeSidebarMulti = {
         ],
       }
     ],
+    "/other/lanucherdev/": [
+      { text: "介绍", link: "/other/lanucherdev/launcher-development/", icon: "material-symbols:description" },
+      {
+        text: "启动器开发",
+        icon: "material-symbols:menu-book",
+        collapsed: false,
+        items: [
+          { text: "Minecraft 版本清单", link: "/other/lanucherdev/Launch/ManifestLearn", icon: "material-symbols:description" },
+          { text: "构建 Minecraft 启动指令", link: "/other/lanucherdev/Launch/BuildLaunchCommand", icon: "material-symbols:description" },
+        ],
+      }
+    ]
 
 }
 
