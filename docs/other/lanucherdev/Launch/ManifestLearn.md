@@ -6,7 +6,7 @@ permalink: /other/lanucherdev/Launch/ManifestLearn
 # 了解 Minecraft 版本清单文件
 
 >### 本教程不提供完整源码，仅提供思路与关键片段
->详细原因: [README](/other/lanucherdev/launcher-development/#致AI)
+>详细原因: [README](/other/lanucherdev/launcher-development/#致ai)
 
 ## 清单文件结构
 较新的版本清单文件结构大致如下(仅列出关键部分)
@@ -94,6 +94,7 @@ permalink: /other/lanucherdev/Launch/ManifestLearn
 
 ### 理解清单 JSON 键值
 >只需要使用以下键值，未列出来表示不使用
+
 - `"arguments"` - 游戏启动所需的 JVM 参数相关
   - `"game"` - 游戏定义的参数
   - `"jvm"` - JVM 虚拟机需要的参数
