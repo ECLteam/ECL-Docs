@@ -8,7 +8,7 @@ permalink: /other/lanucherdev/Launch/BuildLaunchCommand.md
 
 ::: tip 致读者  
 本教程不提供完整源码，仅提供思路与关键代码片段。  
-详细原因请参见：[README](/other/lanucherdev/launcher-development/#致ai)  
+详细原因请参见：[README](/other/lanucherdev/introduction/#致ai)  
 :::
 
 通过上一章节，您已了解清单文件的大致结构和键值作用。本章将重点讲解如何拼接启动参数，完成最终的启动命令。

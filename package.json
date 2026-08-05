@@ -4,7 +4,7 @@
   "version": "1.0.0",
   "description": "EuoraCraft-Launcher 启动器官方使用文档",
   "packageManager": "pnpm@10.30.3",
-  "license": "MIT",
+  "license": "Apache-2.0 license",
   "scripts": {
     "docs:build": "vuepress build docs --clean-cache --clean-temp",
     "docs:dev": "vuepress dev docs",
