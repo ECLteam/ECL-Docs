@@ -1,15 +1,24 @@
 ---
-title: 版本清单
+title: 了解 Minecraft 版本清单文件
 createTime: 2026/08/04 23:00:00
 permalink: /other/lanucherdev/Launch/ManifestLearn
 ---
+
 # 了解 Minecraft 版本清单文件
 
->### 本教程不提供完整源码，仅提供思路与关键片段
->详细原因: [README](/other/lanucherdev/launcher-development/#致ai)
+::: tip 致读者
+本教程不提供完整源码，仅提供思路与关键代码片段。  
+详细原因请参见：[README](/other/lanucherdev/launcher-development/#致ai)
+:::
 
-## 清单文件结构
-较新的版本清单文件结构大致如下(仅列出关键部分)
+Minecraft 启动器需要从版本清单（`version.json`）中读取大量配置信息，本章将重点剖析清单文件的核心结构，并说明哪些字段是启动过程中必须关注的。
+
+---
+
+## 清单文件结构概览
+
+现代 Minecraft 版本清单（以 JSON 格式存储）通常包含以下关键部分（已省略非必要字段）：
+
 ```json5
 {
   "arguments": {
@@ -34,7 +43,7 @@ permalink: /other/lanucherdev/Launch/ManifestLearn
       "${auth_xuid}",
       "--versionType",
       "${version_type}"
-      // ...
+      // ... 更多游戏参数
     ],
     "jvm": [
       "--sun-misc-unsafe-memory-access=allow",
@@ -47,7 +56,7 @@ permalink: /other/lanucherdev/Launch/ManifestLearn
       "-Dminecraft.launcher.version=${launcher_version}",
       "-cp",
       "${classpath}"
-      // ...
+      // ... 更多 JVM 参数
     ]
   },
   "assetIndex": {
@@ -81,7 +90,7 @@ permalink: /other/lanucherdev/Launch/ManifestLearn
       },
       "name": "at.yawk.lz4:lz4-java:1.10.1"
     }
-    // ...
+    // ... 更多依赖库
   ],
   "mainClass": "net.minecraft.client.main.Main",
   "releaseTime": "2026-06-16T12:03:33+00:00",
@@ -89,28 +98,37 @@ permalink: /other/lanucherdev/Launch/ManifestLearn
   "type": "release"
 }
 ```
-以上就是我们需要重点关注的部分  
-~~别说什么 JSON 不能写注释，我这是 JSON5~~
 
-### 理解清单 JSON 键值
->只需要使用以下键值，未列出来表示不使用
+> 📝 **注**：上述示例使用了 JSON5 语法（允许注释），实际清单文件为纯 JSON，不含注释。
 
-- `"arguments"` - 游戏启动所需的 JVM 参数相关
-  - `"game"` - 游戏定义的参数
-  - `"jvm"` - JVM 虚拟机需要的参数
-- `"assetIndex"` - 游戏资源引索相关
-  - `"id"` - 资源引索值
-  - `"sha1"` - 文件 SHA-1 HASH 值
-- `"downloads"` - 游戏本体 JAR 文件相关
-  - `"client"` - 游戏客户端
-    - `"sha1"` - 游戏客户端本体 JAR 文件 SHA-1 HASH 值
-- `"id"` - 版本名称(大多数启动器都会修改它)
-- `"javaVersion"` - 游戏需求的 JAVA 版本相关
-  - `"majorVersion"` - 游戏需求的 JAVA 版本(可以高一点，小于该版本的可能无法启动)
-- `"libraries"` - 游戏依赖的 Maven 库
-  - `[{"name"}]` - Maven 库名(这包含了库存储的位置)
-  
-注意，Maven 库的 `"sha1"` 键值位置不固定，它可能出现在如下位置：
+---
+
+## 关键字段详解
+
+启动器开发只需关注以下字段，其余字段（如 `releaseTime` 等）不影响启动逻辑。
+
+| 字段路径 | 类型 | 说明 |
+|----------|------|------|
+| `arguments.game` | `string[]` | 游戏引擎本身需要的启动参数，如用户名、游戏目录等，包含占位符。 |
+| `arguments.jvm` | `string[]` | Java 虚拟机运行时参数，如库路径、系统属性等，同样包含占位符。 |
+| `assetIndex.id` | `string` | 资源索引标识符（如 `"32"`），用于定位对应的资源索引 JSON 文件。 |
+| `assetIndex.sha1` | `string` | 资源索引文件的 SHA-1 哈希值，用于校验文件完整性。 |
+| `downloads.client` | `object` | 游戏客户端主 JAR 文件的下载信息，包含 `sha1`、`size`、`url`。 |
+| `id` | `string` | 版本名称（如 `"26.2"`），许多启动器会将其显示在界面或用于目录命名。 |
+| `javaVersion.majorVersion` | `number` | 推荐使用的 Java 主版本号（如 `25`），低于此版本可能无法正常启动。 |
+| `libraries` | `object[]` | 所有依赖库的列表，每个库包含 `name`（Maven 坐标）和下载信息。 |
+| `mainClass` | `string` | 游戏主入口类（如 `net.minecraft.client.main.Main`），用于 Java 命令的类名。 |
+| `type` | `string` | 版本类型，如 `"release"`（正式版）、`"snapshot"`（快照）等。 |
+
+---
+
+## 关于依赖库的特别说明
+
+### Maven 库的 `sha1` 位置不固定
+
+不同版本的清单中，库文件的 SHA-1 哈希值可能出现在不同位置，通常有两种形式：
+
+**形式一**（嵌套在 `downloads.artifact` 中）：
 ```json
 {
   "libraries": [
@@ -125,6 +143,7 @@ permalink: /other/lanucherdev/Launch/ManifestLearn
 }
 ```
 
+**形式二**（直接位于库对象下）：
 ```json
 {
   "libraries": [
@@ -135,4 +154,4 @@ permalink: /other/lanucherdev/Launch/ManifestLearn
 }
 ```
 
-另外，Maven 库的 `"url"` 键值通常不直接使用，但可用于辅助判断该从哪里下载它
+> 💡 **建议**：在解析时，应兼容两种结构，优先查找 `downloads.artifact.sha1`，若不存在则回退到顶层的 `sha1`。
