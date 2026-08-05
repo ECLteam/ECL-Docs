@@ -3,10 +3,11 @@ title: 构建 Minecraft 启动指令
 createTime: 2026/08/04 23:00:00
 permalink: /other/lanucherdev/Launch/BuildLaunchCommand
 ---
-# 构建 Minecraft 启动指令
 
->### 本教程不提供完整源码，仅提供思路与关键片段
->详细原因: [README](/other/lanucherdev/launcher-development/#致AI)
+::: info
+本教程不提供完整源码，仅提供思路与关键片段
+详细原因: [点击此处](/other/lanucherdev/introduction/#致ai)
+:::
 
 通过上一章节可以了解清单文件的大致结构和键值作用，本章注重讲如何拼接启动参数
 

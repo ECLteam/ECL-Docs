@@ -10,7 +10,7 @@ export default defineNavbarConfig([
   { text: '首页', link: '/' },
   { text: '快速开始', link: '/guide/introduction/', activeMatch: '^/guide/' },
   { text: '其他', items: [
-    { text: '启动器开发', link: '/other/lanucherdev/launcher-development/', activeMatch: '^/other/' }
+    { text: '启动器开发', link: '/other/lanucherdev/introduction/', activeMatch: '^/other/' }
   ] },
   //{ text: '用户协议', link: '/EULA/', activeMatch: '^/EULA/' },
   //{ text: '博客', link: '/blog/' },

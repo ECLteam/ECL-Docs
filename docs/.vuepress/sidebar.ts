@@ -20,7 +20,7 @@ const sidebar: ThemeSidebarMulti = {
       }
     ],
     "/other/lanucherdev/": [
-      { text: "介绍", link: "/other/lanucherdev/launcher-development/", icon: "material-symbols:description" },
+      { text: "介绍", link: "/other/lanucherdev/introduction/", icon: "material-symbols:description" },
       {
         text: "启动器开发",
         icon: "material-symbols:menu-book",

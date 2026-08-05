@@ -1,12 +1,13 @@
 ---
-title: 版本清单
+title: 了解 Minecraft 版本清单文件
 createTime: 2026/08/04 23:00:00
 permalink: /other/lanucherdev/Launch/ManifestLearn
 ---
-# 了解 Minecraft 版本清单文件
 
->### 本教程不提供完整源码，仅提供思路与关键片段
->详细原因: [README](/other/lanucherdev/launcher-development/#致AI)
+::: info
+本教程不提供完整源码，仅提供思路与关键片段
+详细原因: [点击此处](/other/lanucherdev/introduction/#致ai)
+:::
 
 ## 清单文件结构
 较新的版本清单文件结构大致如下(仅列出关键部分)
