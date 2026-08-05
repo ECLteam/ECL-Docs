@@ -32,7 +32,7 @@ export default defineUserConfig({
     hostname: 'https://docs.eclteam.top',
 
     /* 文档仓库配置，用于 editLink */
-    docsRepo: 'https://github.com/ECLteam/ECL-Docs',
+    docsRepo: 'https://github.com/ECLteam/ECLteam.github.io',
     docsDir: 'docs',
     docsBranch: 'main',
 
