@@ -6,12 +6,15 @@ permalink: /other/lanucherdev/launcher-development/
 
 # Minecraft Launcher 制作学习
 本文章将告诉您制作一个 Minecraft Launcher 的所有思路  
-  
->在此之前，您需要满足以下要求：
->1. 至少掌握任何一门编程语言(如`Python`等)
->2. 编程语言需要支持 `IO操作`、`Json`等数据格式解析
->3. 具备基本的编程能力(阅读和编写代码)
->4. 具备一定的阅读理解能力
+
+::: tip  
+在此之前，您需要满足以下要求：
+1. 至少掌握任何一门编程语言(如`Python`等)
+2. 编程语言需要支持 `IO操作`、`Json`等数据格式解析
+3. 具备基本的编程能力(阅读和编写代码)
+4. 具备一定的阅读理解能力
+
+:::
   
 拒绝任何无编程能力的小白通过 `Vibe Coding` 写一个毫无含金量的低质 Minecraft Launcher
 
