@@ -1,17 +1,15 @@
 /**
  * 查看以下文档了解主题配置
  * - @see https://theme-plume.vuejs.press/config/intro/ 配置说明
- * - @see https://theme-plume.vuejs.press/config/theme/ 主题配置项
- *
- * 请注意，对此文件的修改都会重启 vuepress 服务。
- * 部分配置项的更新没有必要重启 vuepress 服务，建议请在 `.vuepress/config.ts` 文件中配置
- *
+ * - @see https://theme-plume.vuejs.press/config/theme/ 主题配置�? *
+ * 请注意，对此文件的修改都会重�?vuepress 服务�? * 部分配置项的更新没有必要重启 vuepress 服务，建议请�?`.vuepress/config.ts` 文件中配�? *
  * 特别的，请不要在两个配置文件中重复配置相同的项，当前文件的配置项会被覆盖
  */
 
 import { viteBundler } from '@vuepress/bundler-vite'
 import { defineUserConfig } from 'vuepress'
 import { plumeTheme } from 'vuepress-theme-plume'
+import { resolve } from 'node:path'
 
 export default defineUserConfig({
   base: '/',
@@ -24,14 +22,20 @@ export default defineUserConfig({
     ['link', { rel: 'icon', type: 'image/png', href: '/logo.png' }],
   ],
 
-  bundler: viteBundler(),
+  bundler: viteBundler({
+    viteOptions: {
+      resolve: {
+        alias: { '@': resolve(__dirname, './') },
+      },
+    },
+  }),
   shouldPrefetch: true, // 站点较大，页面数量较多时，不建议启用
 
   theme: plumeTheme({
-    /* 添加您的部署域名, 有助于 SEO, 生成 sitemap */
+    /* 添加您的部署域名, 有助�?SEO, 生成 sitemap */
     hostname: 'https://docs.eclteam.top',
 
-    /* 文档仓库配置，用于 editLink */
+    /* 文档仓库配置，用�?editLink */
     docsRepo: 'https://github.com/ECLteam/ECLteam.github.io',
     docsDir: 'docs',
     docsBranch: 'main',
@@ -52,7 +56,7 @@ export default defineUserConfig({
     cache: 'filesystem',
 
     /**
-     * 为 markdown 文件自动添加 frontmatter 配置
+     * �?markdown 文件自动添加 frontmatter 配置
      * @see https://theme-plume.vuejs.press/config/theme/#autofrontmatter
      */
     autoFrontmatter: //true,
@@ -67,7 +71,7 @@ export default defineUserConfig({
 
     /**
      * Algolia DocSearch
-     * 启用此搜索需要将 本地搜索 search 设置为 false
+     * 启用此搜索需要将 本地搜索 search 设置�?false
      * @see https://theme-plume.vuejs.press/config/plugins/search/#algolia-docsearch
      */
     // search: {
@@ -87,7 +91,7 @@ export default defineUserConfig({
        lineNumbers: true, // 启用行号
     },
 
-    /* 文章字数统计、阅读时间，设置为 false 则禁用 */
+    /* 文章字数统计、阅读时间，设置�?false 则禁�?*/
     readingTime: true,
 
     /**
@@ -131,11 +135,10 @@ export default defineUserConfig({
     //   flowchart: true,    // 启用 flowchart
     //   image: {
     //     figure: true,     // 启用 figure
-    //     lazyload: true,   // 启用图片懒加载
-    //     mark: true,       // 启用图片标记
+    //     lazyload: true,   // 启用图片懒加�?    //     mark: true,       // 启用图片标记
     //     size: true,       // 启用图片大小
     //   },
-    //   include: true,      // 在 Markdown 文件中导入其他 markdown 文件内容
+    //   include: true,      // �?Markdown 文件中导入其�?markdown 文件内容
        imageSize: 'local', // 启用 自动填充 图片宽高属性，避免页面抖动
      },
 

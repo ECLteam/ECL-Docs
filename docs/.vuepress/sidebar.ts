@@ -30,7 +30,10 @@ const sidebar: ThemeSidebarMulti = {
           { text: "构建 Minecraft 启动指令", link: "/other/lanucherdev/Launch/BuildLaunchCommand", icon: "material-symbols:description" },
         ],
       }
-    ]
+    ],
+    "/dev/": [
+      { text: "项目构建", link: "/dev/", icon: "material-symbols:build-outline" },
+    ],
 
 }
 

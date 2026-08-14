@@ -9,15 +9,8 @@ import { defineNavbarConfig } from 'vuepress-theme-plume'
 export default defineNavbarConfig([
   { text: '首页', link: '/' },
   { text: '快速开始', link: '/guide/introduction/', activeMatch: '^/guide/' },
+  { text: '开发', link: '/dev/', activeMatch: '^/dev/' },
   { text: '其他', items: [
     { text: '启动器开发', link: '/other/lanucherdev/introduction/', activeMatch: '^/other/' }
   ] },
-  //{ text: '用户协议', link: '/EULA/', activeMatch: '^/EULA/' },
-  //{ text: '博客', link: '/blog/' },
-  //{ text: '标签', link: '/blog/tags/' },
-  //{ text: '归档', link: '/blog/archives/' },
-  //{
-  //  text: '笔记',
-  //  items: [{ text: '示例', link: '/demo/README.md' }]
-  //},
 ])

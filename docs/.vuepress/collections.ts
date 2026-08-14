@@ -63,9 +63,16 @@ const LauncherDevDoc = defineCollection({
   //sidebarCollapsed: true, 
 })
 
+const DevDoc = defineCollection({
+  type: 'doc',
+  dir: '/dev/',
+  linkPrefix: '/dev',
+  title: '开发文档',
+})
+
 /**
  * 导出所有的 collections
  */
 export default defineCollections([
-  Doc, LauncherDevDoc
+  Doc, LauncherDevDoc, DevDoc
 ])
