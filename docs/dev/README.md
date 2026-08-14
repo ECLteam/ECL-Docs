@@ -1,125 +1,65 @@
----
-title: 项目构建
+﻿---
+title: 开发文档
 permalink: /dev/
 createTime: 2026/08/12 21:30:00
 ---
 
-# 项目构建
-
-EuoraCraft Launcher 由 Python 后端、frontend 前端子模块和 `ECL/game` Core 子模块组成。克隆项目时必须同时拉取子模块。
-
-## 环境要求
-
-| 工具 | 版本 |
-| --- | --- |
-| Python | 3.11 或更高，推荐 3.12 |
-| Node.js | 22 |
-| pnpm | 10.34.4 |
-| Git | 最新稳定版 |
-
-::: warning Linux 系统依赖
-Ubuntu/Debian 需要额外安装 GTK、WebKit 和打包工具：
-
-```bash
-sudo apt-get update
-sudo apt-get install -y libgtk-3-dev libwebkit2gtk-4.1-dev libappindicator3-dev librsvg2-dev patchelf
-```
+::: warning 提示
+本页面为开发者文档，主要面向 EuoraCraft Launcher 的开发者和贡献者。如果您是普通用户，那么请您关闭此页面或者返回[主页](../README.md)，此页面不影响您使用 EuoraCraft Launcher 的功能。
 :::
 
-## 1. 拉取源码
 
-```bash
-git clone --recurse-submodules https://github.com/ECLteam/EuoraCraft-Launcher.git
-cd EuoraCraft-Launcher
-```
+## 项目介绍
 
-如果已经使用普通方式克隆，补充初始化子模块：
+欢迎来到 ==EuoraCraft Launcher== 的开发者文档！本项目是一个开源的 Minecraft 启动器，旨在为玩家提供更好的游戏体验和更多的自定义选项。无论您是想贡献代码、修复 bug，还是添加新功能，这里都是您开始的地方。
 
-```bash
-git submodule sync --recursive
-git submodule update --init --recursive
-```
+项目主要是基于 `PyTauri` 和 `vue3` 开发的跨平台桌面应用程序，支持 Windows、Linux 和 macOS。我们欢迎所有对 Minecraft 启动器开发感兴趣的开发者加入我们的社区，共同打造一个更好的游戏体验。
 
-## 2. 安装后端依赖
+如果您对启动器原理感兴趣的话，您可以浏览[启动器原理](../other/lanucherdev/README.md) 页面，了解启动器的启动原理。
 
-::: code-tabs
-@tab Windows PowerShell
-```powershell
-py -3.12 -m venv .venv
-Set-ExecutionPolicy -Scope Process Bypass
-.\.venv\Scripts\Activate.ps1
-python -m pip install --upgrade pip
-python -m pip install -e ".[dev]"
-```
 
-@tab Linux / macOS
-```bash
-python3.12 -m venv .venv
-source .venv/bin/activate
-python -m pip install --upgrade pip
-python -m pip install -e ".[dev]"
-```
+### 启动器仓库
+
+以下为 EuoraCraft Launcher 相关的主要仓库：!!“欢迎各位贡献者前来贡献！”!!
+
+<RepoCard repo="ECLteam/EuoraCraft-Launcher" />
+<RepoCard repo="ECLteam/EuoraCraftLauncher-UI" />
+<RepoCard repo="ECLteam/ECLauncherCore" />
+<RepoCard repo="ECLteam/Florolding" />
+
+### 技术栈
+本项目基于以下技术栈：
+
+::: collapse
+- 依赖列表 （点击展开）
+    | 分类 | 技术 | 说明 |
+    | ---- | ---- | ---- |
+    | 后端语言 | Python >= 3.11 | 主逻辑开发语言 |
+    | 后端框架 | PyTauri 0.8 | 基于 Tauri 的 Python 桌面应用框架 |
+    | 前端语言 | TypeScript ~5.7 | 前端开发语言 |
+    | 前端框架 | Vue 3.5 | 响应式 UI 框架 |
+    | 前端构建 | Vite 7 | 构建工具 |
+    | UI 组件库 | Naive UI 2.41 | 桌面级 Vue 组件库 |
+    | 样式方案 | Tailwind CSS 4 + PostCSS | 原子化 CSS 框架 |
+    | 状态管理 | Pinia 4 | Vue 状态管理 |
+    | 路由 | Vue Router 4 | 前端路由 |
+    | 国际化 | vue-i18n 10 | 多语言支持 |
+    | 图标 | Tabler Icons (Iconify) | 图标库 |
+    | 动画 | GSAP 3.12 | 高性能动画引擎 |
+    | 3D 皮肤预览 | skinview3d 3.4 | Minecraft 皮肤模型渲染 |
+    | Markdown 渲染 | marked + dompurify | 安全渲染 Markdown 内容 |
+    | 工具库 | VueUse 13 | 组合式 API 工具集 |
+    | HTTP 客户端 | httpx[HTTP2] 0.28 | 异步 HTTP 请求 |
+    | 微软认证 | MSAL 1.20 | Microsoft 身份验证库 |
+    | 数据验证 | Pydantic 2 | 数据模型与校验 |
+    | Minecraft 协议 | mcstatus 12 | 服务器状态查询 |
+    | NBT 解析 | nbtlib 2 | Minecraft NBT 格式解析 |
+    | 图片处理 | Pillow 10 | 图像处理库 |
+    | 系统信息 | psutil 7 | 系统进程与硬件信息 |
+    | 打包工具 | PyInstaller | 打包为 Windows 可执行文件 |
+    | 代码规范 | Ruff + ESLint + Prettier | 代码检查与格式化 |
+    | 测试框架 | pytest + vitest | 单元测试 |
 :::
 
-## 3. 构建前端
-
-```bash
-cd frontend
-pnpm install --frozen-lockfile
-pnpm build
-cd ..
-```
-
-前端构建结果位于 `frontend/dist`，后端运行和 PyInstaller 打包都会读取该目录。
-
-## 4. 运行源码
-
-```bash
-python main.py
-```
-
-Microsoft 登录需要在根目录创建 `.env` 并填写 `MICROSOFT_CLIENT_ID`；未配置时仍可进行不依赖 Microsoft 登录的开发。运行日志位于 `ECL_data/logs`。
-
-## 5. 检查项目
-
-```bash
-python -m ruff check ECL tests
-python -m pytest -q
-```
-
-修改过前端时，在 `frontend` 目录额外运行：
-
-```bash
-pnpm lint
-pnpm typecheck
-pnpm test
-pnpm build
-```
-
-## 6. 打包桌面程序
-
-::: code-tabs
-@tab Windows PowerShell
-```powershell
-$env:ECL_CONSOLE = "1"
-$env:ECL_UPX = "0"
-python -m PyInstaller --noconfirm EuoraCraft-Launcher.spec
-```
-
-@tab Linux / macOS
-```bash
-ECL_CONSOLE=1 ECL_UPX=0 python -m PyInstaller --noconfirm EuoraCraft-Launcher.spec
-```
-:::
-
-| 平台 | 构建结果 |
-| --- | --- |
-| Windows | `dist/EuoraCraft Launcher.exe` |
-| Linux | `dist/EuoraCraft Launcher` |
-| macOS | `dist/EuoraCraft Launcher.app` |
-
-终端最后出现 `Build complete!`，并且 `dist` 中存在对应平台的制品，即表示构建完成。
-
-::: tip 常见问题
-提示缺少 `frontend/dist` 时，请重新执行第 3 步；子模块目录为空时，请重新运行 `git submodule update --init --recursive`。
-:::
+## 导航
+[1. 环境搭建](./lanucherdev/envsetup.md)  

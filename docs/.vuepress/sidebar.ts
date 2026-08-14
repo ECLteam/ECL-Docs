@@ -32,7 +32,15 @@ const sidebar: ThemeSidebarMulti = {
       }
     ],
     "/dev/": [
-      { text: "项目构建", link: "/dev/", icon: "material-symbols:build-outline" },
+      { text: "介绍", link: "/dev/", icon: "material-symbols:description" },
+      {
+        text: "启动器开发",
+        icon: "material-symbols:menu-book",
+        collapsed: false,
+        items: [
+          { text: "搭建环境", link: "/dev/lanucherdev/envsetup", icon: "material-symbols:description" },
+        ],
+      }
     ],
 
 }

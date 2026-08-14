@@ -56,7 +56,7 @@ export default defineUserConfig({
     cache: 'filesystem',
 
     /**
-     * �?markdown 文件自动添加 frontmatter 配置
+     * markdown 文件自动添加 frontmatter 配置
      * @see https://theme-plume.vuejs.press/config/theme/#autofrontmatter
      */
     autoFrontmatter: //true,
@@ -91,7 +91,7 @@ export default defineUserConfig({
        lineNumbers: true, // 启用行号
     },
 
-    /* 文章字数统计、阅读时间，设置�?false 则禁�?*/
+    /* 文章字数统计、阅读时间，设置为false 则禁用*/
     readingTime: true,
 
     /**
@@ -103,7 +103,7 @@ export default defineUserConfig({
     //   annotation: true,   // 启用 annotation 语法  [+label]: content
     //   pdf: true,          // 启用 PDF 嵌入 @[pdf](/xxx.pdf)
     //   caniuse: true,      // 启用 caniuse 语法  @[caniuse](feature_name)
-    //   plot: true,         // 启用隐秘文本语法 !!xxxx!!
+       plot: true,         // 启用隐秘文本语法 !!xxxx!!
     //   bilibili: true,     // 启用嵌入 bilibili视频 语法 @[bilibili](bid)
     //   youtube: true,      // 启用嵌入 youtube视频 语法 @[youtube](video_id)
     //   artPlayer: true,    // 启用嵌入 artPlayer 本地视频 语法 @[artPlayer](url)
@@ -112,14 +112,14 @@ export default defineUserConfig({
         provider: 'iconify',
         //provider: 'fontawesome',
         },        // 启用内置图标语法  ::icon-name::
-    //   table: true,        // 启用表格增强容器语法 ::: table
+       table: true,        // 启用表格增强容器语法 ::: table
     //   codepen: true,      // 启用嵌入 codepen 语法 @[codepen](user/slash)
     //   replit: true,       // 启用嵌入 replit 语法 @[replit](user/repl-name)
     //   codeSandbox: true,  // 启用嵌入 codeSandbox 语法 @[codeSandbox](id)
     //   jsfiddle: true,     // 启用嵌入 jsfiddle 语法 @[jsfiddle](user/id)
     //   npmTo: true,        // 启用 npm-to 容器  ::: npm-to
     //   demo: true,         // 启用 demo 容器  ::: demo
-    //   collapse: true,     // 启用折叠容器  ::: collapse
+       collapse: true,     // 启用折叠容器  ::: collapse
     //   repl: {             // 启用 代码演示容器
     //     go: true,         // ::: go-repl
     //     rust: true,       // ::: rust-repl
@@ -133,12 +133,13 @@ export default defineUserConfig({
     //   echarts: true,      // 启用 ECharts
        mermaid: true,      // 启用 mermaid
     //   flowchart: true,    // 启用 flowchart
-    //   image: {
-    //     figure: true,     // 启用 figure
-    //     lazyload: true,   // 启用图片懒加�?    //     mark: true,       // 启用图片标记
-    //     size: true,       // 启用图片大小
-    //   },
-    //   include: true,      // �?Markdown 文件中导入其�?markdown 文件内容
+       image: {
+         figure: true,     // 启用 figure
+         lazyload: true,   // 启用图片懒加载
+         mark: true,       // 启用图片标记
+         size: true,       // 启用图片大小
+       },
+    //   include: true,      // 在 Markdown 文件中导入其 markdown 文件内容
        imageSize: 'local', // 启用 自动填充 图片宽高属性，避免页面抖动
      },
 
@@ -152,17 +153,17 @@ export default defineUserConfig({
      * 评论 comments
      * @see https://theme-plume.vuejs.press/guide/features/comments/
      */
-    // comment: {
-    //   provider: '', // "Artalk" | "Giscus" | "Twikoo" | "Waline"
-    //   comment: true,
-    //   repo: '',
-    //   repoId: '',
-    //   category: '',
-    //   categoryId: '',
-    //   mapping: 'pathname',
-    //   reactionsEnabled: true,
-    //   inputPosition: 'top',
-    // },
+     comment: {
+       provider: 'Giscus', // "Artalk" | "Giscus" | "Twikoo" | "Waline"
+       comment: true,
+       repo: 'ECLteam/EuoraCraft-Launcher',
+       repoId: 'R_kgDOQSIXkw',
+       category: 'General',
+       categoryId: 'DIC_kwDOQSIXk84DDYaY',
+       mapping: 'pathname',
+       reactionsEnabled: true,
+       inputPosition: 'top',
+     },
 
     /**
      * 资源链接替换

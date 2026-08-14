@@ -20,5 +20,3 @@ permalink: /guide/introduction/
 同时，启动器使用 `Python` 编写，支持跨平台运行
 
 
-### 启动器仓库
-<RepoCard repo="ECLteam/EuoraCraftLauncher" />
